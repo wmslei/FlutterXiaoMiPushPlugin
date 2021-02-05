@@ -3,6 +3,7 @@ class MiPushMessageEntity {
   final String content;
   final String description;
   final MiPushMessageExtra extra;
+  final Map<String, dynamic> extraJson;
   final String messageId;
   final int messageType;
   final bool notified;
@@ -16,6 +17,7 @@ class MiPushMessageEntity {
     this.content,
     this.description,
     this.extra,
+    this.extraJson,
     this.messageId,
     this.messageType,
     this.notified,
@@ -33,6 +35,7 @@ class MiPushMessageEntity {
       extra: json['extra'] == null
           ? null
           : MiPushMessageExtra.fromJson(json['extra']),
+      extraJson: json['extra'],
       messageId: json['messageId'],
       messageType: json['messageType'],
       notified: json['notified'],
@@ -47,7 +50,7 @@ class MiPushMessageEntity {
         'arrivedMessage': arrivedMessage,
         'content': content,
         'description': description,
-        'extra': extra == null ? null : extra.toJson(),
+        'extra': extraJson,//extra == null ? null : extra.toJson(),
         'messageId': messageId,
         'messageType': messageType,
         'notified': notified,
